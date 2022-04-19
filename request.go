@@ -21,18 +21,25 @@ func toString(v interface{}) string {
 	case string:
 		return v
 	case int8:
-	case int16:
-	case int32:
-	case int:
 		return strconv.Itoa(int(v))
+	case int16:
+		return strconv.Itoa(int(v))
+	case int32:
+		return strconv.Itoa(int(v))
+	case int:
+		return strconv.Itoa(v)
 	case int64:
 		return strconv.FormatInt(v, 10)
 	case uint8:
-	case uint16:
-	case uint32:
-	case uint:
-	case uint64:
 		return strconv.FormatUint(uint64(v), 10)
+	case uint16:
+		return strconv.FormatUint(uint64(v), 10)
+	case uint32:
+		return strconv.FormatUint(uint64(v), 10)
+	case uint:
+		return strconv.FormatUint(uint64(v), 10)
+	case uint64:
+		return strconv.FormatUint(v, 10)
 	}
 	return fmt.Sprintf("%v", v)
 }
