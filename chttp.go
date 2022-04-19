@@ -77,6 +77,8 @@ func (c *client) Put(url string) (r *request) {
 		c:      c,
 		url:    url,
 		method: "PUT",
+		meta:   make(map[string][]string),
+		params: make(map[string][]string),
 	}
 }
 
@@ -88,6 +90,8 @@ func (c *client) Delete(url string) (r *request) {
 		c:      c,
 		url:    url,
 		method: "DELETE",
+		meta:   make(map[string][]string),
+		params: make(map[string][]string),
 	}
 }
 
@@ -101,6 +105,8 @@ func Get(url string) (r *request) {
 		c:      DefaultClient,
 		url:    url,
 		method: "GET",
+		meta:   make(map[string][]string),
+		params: make(map[string][]string),
 	}
 }
 
@@ -112,6 +118,8 @@ func Post(url string) (r *request) {
 		c:      DefaultClient,
 		url:    url,
 		method: "POST",
+		meta:   make(map[string][]string),
+		params: make(map[string][]string),
 	}
 }
 
@@ -123,6 +131,8 @@ func Put(url string) (r *request) {
 		c:      DefaultClient,
 		url:    url,
 		method: "PUT",
+		meta:   make(map[string][]string),
+		params: make(map[string][]string),
 	}
 }
 
@@ -134,5 +144,7 @@ func Delete(url string) (r *request) {
 		c:      DefaultClient,
 		url:    url,
 		method: "DELETE",
+		meta:   make(map[string][]string),
+		params: make(map[string][]string),
 	}
 }
