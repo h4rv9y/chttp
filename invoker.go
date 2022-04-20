@@ -100,3 +100,21 @@ func (r *request) ToString() stringResult {
 		str: string(data),
 	}
 }
+
+func (r *request) ToStruct(v interface{}) result {
+	res, err := r.invoker()
+	if err != nil {
+		return result{err: err}
+	}
+	defer res.Body.Close()
+	data, err := ioutil.ReadAll(res.Body)
+	if err != nil {
+		return result{err: err}
+	}
+	if err = json.Unmarshal(data, v); err != nil {
+		return result{err: err}
+	}
+	return result{
+		status: res.StatusCode,
+	}
+}
